@@ -1,3 +1,4 @@
+
 package com.back.global.rq;
 
 import com.back.domain.member.member.entity.Member;
@@ -67,6 +68,15 @@ public class Rq {
         Cookie cookie = new Cookie(name, value);
         cookie.setPath("/");
         cookie.setHttpOnly(true);
+
+        resp.addCookie(cookie);
+    }
+
+    public void deleteCookie(String name) {
+        Cookie cookie = new Cookie(name, "");
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(0);
 
         resp.addCookie(cookie);
     }
